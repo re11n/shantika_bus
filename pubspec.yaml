@@ -78,6 +78,9 @@ flutter:
     - family: Acme-Regular
       fonts:
         - asset: lib/fonts/Acme-Regular.ttf
+    - family: RobotoSlab-VariableFont_wght
+      fonts:
+        - asset: lib/fonts/RobotoSlab-VariableFont_wght.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
