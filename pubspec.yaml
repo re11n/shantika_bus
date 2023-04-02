@@ -85,6 +85,13 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+
+    - family: Acme-Regular
+      fonts:
+        - asset: lib/fonts/Acme-Regular.ttf
+    - family: RobotoSlab-VariableFont_wght
+      fonts:
+        - asset: lib/fonts/RobotoSlab-VariableFont_wght.ttf
     - family: Hurricane
       fonts:
         - asset: lib/fonts/hurricane.ttf
