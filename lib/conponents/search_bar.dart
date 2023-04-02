@@ -2,21 +2,7 @@ import 'package:advanced_search/advanced_search.dart';
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
-  final List<String> searchableList = [
-    "Orange",
-    "Apple",
-    "Banana",
-    "Mango Orange",
-    "Carrot Apple",
-    "Yellow Watermelon",
-    "Zhe Fruit",
-    "White Oats",
-    "Dates",
-    "Raspberry Blue",
-    "Green Grapes",
-    "Red Grapes",
-    "Dragon Fruit"
-  ];
+  final List<String> searchableList = ["Bandung", "Jakarta", "Bogor"];
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +17,7 @@ class SearchBar extends StatelessWidget {
         selectedTextColor: Color(0xFF3363D9),
         fontSize: 14,
         borderRadius: 12.0,
-        hintText: 'Search Me',
+        hintText: 'Mau kemana Hari Ini?',
         cursorColor: Colors.blueGrey,
         autoCorrect: false,
         focusedBorderColor: Colors.blue,
