@@ -44,6 +44,7 @@ dependencies:
   flashy_tab_bar2: ^0.0.6
   advanced_search: ^2.2.3
 dev_dependencies:
+  get : 4.6.5 
   flutter_test:
     sdk: flutter
 
