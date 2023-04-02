@@ -38,7 +38,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^2.9.0
   firebase_auth: ^4.4.0
-
+  fluentui_icons: ^1.0.0
+  molten_navigationbar_flutter: ^1.0.0
+  floating_bottom_navigation_bar: ^1.5.2
+  flashy_tab_bar2: ^0.0.6
+  advanced_search: ^2.2.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
