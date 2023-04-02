@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "535813158229",
+    "project_id": "newshantika-7526d",
+    "storage_bucket": "newshantika-7526d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:535813158229:android:d96829fd0e6184b674abdc",
+        "android_client_info": {
+          "package_name": "com.example.shantika_bus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "535813158229-sr2tmspl7vs397pha05u2skphqbfpce0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0Q-N3nVTYsNPG65EgDct9wmZjN5wAcFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "535813158229-sr2tmspl7vs397pha05u2skphqbfpce0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
