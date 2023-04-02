@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {
   Function()? onTap;
+  final String text;
 
   LoginButton({
     super.key,
     required this.onTap,
+    required this.text,
   });
 
   @override
@@ -13,16 +15,16 @@ class LoginButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(15),
-        margin: EdgeInsets.symmetric(horizontal: 70),
+        padding: const EdgeInsets.all(15),
+        margin: const EdgeInsets.symmetric(horizontal: 70),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: const Center(
+        child: Center(
             child: Text(
-          "Login",
-          style: TextStyle(
+          text,
+          style: const TextStyle(
             color: Colors.blue,
             fontWeight: FontWeight.bold,
             fontSize: 16,

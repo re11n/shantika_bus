@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:shantika_bus/conponents/login_textfield.dart';
 import 'package:shantika_bus/conponents/login_button.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final Function()? onTap;
 
-  const LoginPage({super.key, required this.onTap});
+  const RegisterPage({super.key, required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
-
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
-  void signUserIn() async {
+  void signUserUp() async {
     showDialog(
         context: context,
         builder: (context) {
@@ -27,8 +27,13 @@ class _LoginPageState extends State<LoginPage> {
         });
 
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
+      if (passwordController.text == confirmPasswordController.text) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text);
+      } else {
+        wrongConfirmMessage();
+      }
+
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
@@ -62,6 +67,17 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  void wrongConfirmMessage() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          title: Text('Password tidak sama, tolong masukkan ulang'),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,40 +95,8 @@ class _LoginPageState extends State<LoginPage> {
                 // logo new shantika
                 Image.asset(
                   'lib/images/shantika_logo.png',
-                  height: 200,
-                  width: 200,
-                ),
-
-                const Text(
-                  'New Shantika',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Hurricane',
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 10.0,
-                        color: Colors.black,
-                        offset: Offset(1.0, 1.0),
-                      ),
-                    ],
-                  ),
-                ),
-
-                const Text(
-                  'Mobile App',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 10.0,
-                        color: Colors.black,
-                        offset: Offset(1.0, 1.0),
-                      ),
-                    ],
-                  ),
+                  height: 150,
+                  width: 150,
                 ),
 
                 const SizedBox(
@@ -128,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                         color: const Color.fromARGB(255, 63, 81, 181),
                       ),
                       width: 300,
-                      height: 400,
+                      height: 500,
                     ),
                     Column(
                       children: [
@@ -152,17 +136,13 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
 
-                        //lupa password
+                        //form confirm password
                         Padding(
-                          padding: const EdgeInsets.only(right: 65, top: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: const [
-                              Text(
-                                'Lupa password?',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
+                          padding: const EdgeInsets.only(top: 30),
+                          child: LoginTextField(
+                            controller: confirmPasswordController,
+                            hintText: 'Confirm Password',
+                            obscureText: true,
                           ),
                         ),
 
@@ -170,26 +150,26 @@ class _LoginPageState extends State<LoginPage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 30),
                           child: LoginButton(
-                            text: "Login",
-                            onTap: signUserIn,
+                            text: "Register",
+                            onTap: signUserUp,
                           ),
                         ),
 
                         Padding(
-                          padding: const EdgeInsets.only(top: 80.0, left: 75),
+                          padding: const EdgeInsets.only(top: 45.0, left: 75),
                           child: Row(
                             children: [
-                              Text(
-                                'Belum punya akun?',
+                              const Text(
+                                'Sudah punya akun?',
                                 style: TextStyle(color: Colors.black),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 4,
                               ),
                               GestureDetector(
                                 onTap: widget.onTap,
-                                child: Text(
-                                  'Register Sekarang',
+                                child: const Text(
+                                  'Login Sekarang',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
