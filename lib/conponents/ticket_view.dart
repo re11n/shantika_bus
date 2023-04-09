@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shantika_bus/conponents/pesan_form.dart';
 import 'package:shantika_bus/conponents/ticket_form.dart';
 import 'package:shantika_bus/conponents/tipe_harga_form.dart';
 import 'dot_tiket.dart';
@@ -43,16 +44,26 @@ class _TicketViewState extends State<TicketView> {
                 const SizedBox(
                   height: 20,
                 ),
-                TicketForm(
-                  asal: e['asal'],
-                  tujuan: e['tujuan'],
-                  kodeasal: e['kodeasal'],
-                  kodetujuan: e['kodetujuan'],
-                  durasi: e['durasi'],
-                  jamberangkat: e['jamberangkat'],
-                  jamsampai: e['jamsampai'],
-                  tanggal: e['tanggal'],
-                  no: e['no'],
+                InkWell(
+                  child: TicketForm(
+                    asal: e['asal'],
+                    tujuan: e['tujuan'],
+                    kodeasal: e['kodeasal'],
+                    kodetujuan: e['kodetujuan'],
+                    durasi: e['durasi'],
+                    jamberangkat: e['jamberangkat'],
+                    jamsampai: e['jamsampai'],
+                    tanggal: e['tanggal'],
+                    no: e['no'],
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PesanForm(),
+                      ),
+                    );
+                  },
                 ),
                 const DotTiket(),
                 TipeHargaForm(harga: e['harga'], tipebus: e['tipebus'])
