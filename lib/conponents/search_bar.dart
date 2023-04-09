@@ -7,7 +7,8 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 30.0, left: 30, right: 30),
+      margin:
+          const EdgeInsets.only(top: 30.0, left: 30, right: 30, bottom: 30.0),
       child: AdvancedSearch(
         searchItems: searchableList,
         maxElementsToDisplay: 10,
@@ -18,9 +19,9 @@ class SearchBar extends StatelessWidget {
         fontSize: 14,
         borderRadius: 12.0,
         hintText: 'Mau kemana Hari Ini?',
-        cursorColor: Colors.blueGrey,
+        cursorColor: Colors.white,
         autoCorrect: false,
-        focusedBorderColor: Colors.blue,
+        focusedBorderColor: Colors.white,
         searchResultsBgColor: Color(0xFAFAFA),
         disabledBorderColor: Colors.cyan,
         enabledBorderColor: Colors.black,
@@ -59,9 +60,7 @@ class SearchBar extends StatelessWidget {
       title: Text(
         text.length > 3 ? text.substring(0, 3) : text,
         style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-            color: Colors.indigoAccent),
+            fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
       ),
       subtitle: Text(
         text,
