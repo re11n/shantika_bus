@@ -17,7 +17,9 @@ class _DashboardState extends State<Dashboard> {
   int _selectedIndex = 0;
 
   List<Widget> tabItems = [
-    Column(children: [SearchBar(), TicketView()]),
+    SingleChildScrollView(
+      child: Column(children: [SearchBar(), const TicketView()]),
+    ),
     const Center(child: Text("Payment")),
     const JadwalPage(),
     const Center(child: Text("About us")),
@@ -40,9 +42,7 @@ class _DashboardState extends State<Dashboard> {
             IconButton(onPressed: signUserOut, icon: const Icon(Icons.logout)),
           ],
         ),
-        body: Center(
-          child: tabItems[_selectedIndex],
-        ),
+        body: Center(child: tabItems[_selectedIndex]),
         bottomNavigationBar: FlashyTabBar(
           animationCurve: Curves.linear,
           selectedIndex: _selectedIndex,

@@ -1,0 +1,54 @@
+[
+  {
+    "asal": "Bekasi",
+    "tujuan": "tujuan",
+    "kodeasal": "123",
+    "kodetujuan": "ASD",
+    "durasi": "durasi",
+    "jamberangkat": "jamberangkat",
+    "jamsampai": "jamsampai",
+    "tanggal": "tanggal",
+    "no": "no",
+    "harga": "harga",
+    "tipebus": "tipebus"
+  },
+  {
+    "asal": "Bandung",
+    "tujuan": "tujuan",
+    "kodeasal": "123",
+    "kodetujuan": "ASD",
+    "durasi": "durasi",
+    "jamberangkat": "jamberangkat",
+    "jamsampai": "jamsampai",
+    "tanggal": "tanggal",
+    "no": "no",
+    "harga": "harga",
+    "tipebus": "tipebus"
+  },
+  {
+    "asal": "Bogor",
+    "tujuan": "tujuan",
+    "kodeasal": "123",
+    "kodetujuan": "ASD",
+    "durasi": "durasi",
+    "jamberangkat": "jamberangkat",
+    "jamsampai": "jamsampai",
+    "tanggal": "tanggal",
+    "no": "no",
+    "harga": "harga",
+    "tipebus": "tipebus"
+  },
+  {
+    "asal": "Jakarta",
+    "tujuan": "tujuan",
+    "kodeasal": "123",
+    "kodetujuan": "ASD",
+    "durasi": "durasi",
+    "jamberangkat": "jamberangkat",
+    "jamsampai": "jamsampai",
+    "tanggal": "tanggal",
+    "no": "no",
+    "harga": "harga",
+    "tipebus": "tipebus"
+  }
+]
