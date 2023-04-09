@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:shantika_bus/conponents/search_bar.dart';
 import 'package:shantika_bus/conponents/ticket_view.dart';
+import 'about_us.dart';
 import 'jadwal_page.dart';
 
 class Dashboard extends StatefulWidget {
@@ -22,7 +23,7 @@ class _DashboardState extends State<Dashboard> {
     ),
     const Center(child: Text("Payment")),
     const JadwalPage(),
-    const Center(child: Text("About us")),
+    AboutUsPage(),
   ];
   void signUserOut() {
     FirebaseAuth.instance.signOut();

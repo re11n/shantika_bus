@@ -43,6 +43,7 @@ dependencies:
   floating_bottom_navigation_bar: ^1.5.2
   flashy_tab_bar2: ^0.0.6
   advanced_search: ^2.2.3
+  url_launcher: any
 
 dev_dependencies:
   get : 4.6.5 
