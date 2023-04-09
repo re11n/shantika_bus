@@ -7,15 +7,15 @@ class JadwalPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromRGBO(197, 202, 233, 1),
+      backgroundColor: const Color.fromRGBO(197, 202, 233, 1),
       body: Padding(
-        padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 10, bottom: 10),
+              const Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10),
                 child: Text(
                   'Mau lihat jadwal apa?',
                   style: TextStyle(
@@ -25,8 +25,8 @@ class JadwalPage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(16),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(16),
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(24),
@@ -35,18 +35,18 @@ class JadwalPage extends StatelessWidget {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        Text(
+                        const Text(
                           "BDG",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: Colors.indigo),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Container(
-                          padding: EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6),
                           decoration: BoxDecoration(
                               color: Colors.indigo.shade50,
                               borderRadius: BorderRadius.circular(20)),
@@ -70,6 +70,10 @@ class JadwalPage extends StatelessWidget {
                                   child: LayoutBuilder(
                                     builder: (context, constraints) {
                                       return Flex(
+                                        direction: Axis.horizontal,
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: List.generate(
                                             (constraints.constrainWidth() / 6)
                                                 .floor(),
@@ -82,10 +86,6 @@ class JadwalPage extends StatelessWidget {
                                                             .grey.shade300),
                                                   ),
                                                 )),
-                                        direction: Axis.horizontal,
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
                                       );
                                     },
                                   ),
@@ -104,7 +104,7 @@ class JadwalPage extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6),
                           decoration: BoxDecoration(
                               color: Colors.pink.shade50,
                               borderRadius: BorderRadius.circular(20)),
@@ -118,10 +118,10 @@ class JadwalPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
-                        Text(
+                        const Text(
                           "BGR",
                           style: TextStyle(
                               fontSize: 18,
@@ -130,12 +130,12 @@ class JadwalPage extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
+                      children: const <Widget>[
                         SizedBox(
                             width: 100,
                             child: Text(
@@ -160,12 +160,12 @@ class JadwalPage extends StatelessWidget {
                             )),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
+                      children: const <Widget>[
                         Text(
                           "08:00",
                           style: TextStyle(
@@ -182,16 +182,16 @@ class JadwalPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    const SizedBox(height: 12),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(
+                        const Text(
                           "1 April 2023",
                           style: TextStyle(fontSize: 12, color: Colors.grey),
                         ),
                         Row(
-                          children: <Widget>[
+                          children: const <Widget>[
                             Text(
                               "Bus No : ",
                               style:
@@ -220,7 +220,7 @@ class JadwalPage extends StatelessWidget {
                       width: 10,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10)),
                             color: Colors.grey.shade200),
@@ -232,6 +232,9 @@ class JadwalPage extends StatelessWidget {
                         child: LayoutBuilder(
                           builder: (context, constraints) {
                             return Flex(
+                              direction: Axis.horizontal,
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: List.generate(
                                   (constraints.constrainWidth() / 10).floor(),
                                   (index) => SizedBox(
@@ -242,9 +245,6 @@ class JadwalPage extends StatelessWidget {
                                               color: Colors.grey.shade400),
                                         ),
                                       )),
-                              direction: Axis.horizontal,
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             );
                           },
                         ),
@@ -255,7 +255,7 @@ class JadwalPage extends StatelessWidget {
                       width: 10,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(10),
                                 bottomLeft: Radius.circular(10)),
                             color: Colors.grey.shade200),
@@ -265,8 +265,8 @@ class JadwalPage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 16, right: 16, bottom: 12),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(24),
@@ -274,22 +274,22 @@ class JadwalPage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           color: Colors.amber.shade50,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Icon(Icons.directions_bus_filled,
+                      child: const Icon(Icons.directions_bus_filled,
                           color: Colors.amber),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16,
                     ),
-                    Text("Shantika Airbus",
+                    const Text("Shantika Airbus",
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             color: Colors.grey)),
-                    Expanded(
+                    const Expanded(
                         child: Text("Rp105.000",
                             textAlign: TextAlign.end,
                             style: TextStyle(
@@ -303,8 +303,8 @@ class JadwalPage extends StatelessWidget {
                 height: 30,
               ),
               Container(
-                padding: EdgeInsets.all(16),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(16),
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(24),
@@ -313,18 +313,18 @@ class JadwalPage extends StatelessWidget {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        Text(
+                        const Text(
                           "BDG",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: Colors.indigo),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Container(
-                          padding: EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6),
                           decoration: BoxDecoration(
                               color: Colors.indigo.shade50,
                               borderRadius: BorderRadius.circular(20)),
@@ -348,6 +348,10 @@ class JadwalPage extends StatelessWidget {
                                   child: LayoutBuilder(
                                     builder: (context, constraints) {
                                       return Flex(
+                                        direction: Axis.horizontal,
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: List.generate(
                                             (constraints.constrainWidth() / 6)
                                                 .floor(),
@@ -360,10 +364,6 @@ class JadwalPage extends StatelessWidget {
                                                             .grey.shade300),
                                                   ),
                                                 )),
-                                        direction: Axis.horizontal,
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
                                       );
                                     },
                                   ),
@@ -382,7 +382,7 @@ class JadwalPage extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6),
                           decoration: BoxDecoration(
                               color: Colors.pink.shade50,
                               borderRadius: BorderRadius.circular(20)),
@@ -396,10 +396,10 @@ class JadwalPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
-                        Text(
+                        const Text(
                           "JKT",
                           style: TextStyle(
                               fontSize: 18,
@@ -408,12 +408,12 @@ class JadwalPage extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
+                      children: const <Widget>[
                         SizedBox(
                             width: 100,
                             child: Text(
@@ -438,12 +438,12 @@ class JadwalPage extends StatelessWidget {
                             )),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
+                      children: const <Widget>[
                         Text(
                           "11:00",
                           style: TextStyle(
@@ -460,16 +460,16 @@ class JadwalPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    const SizedBox(height: 12),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(
+                        const Text(
                           "1 April 2023",
                           style: TextStyle(fontSize: 12, color: Colors.grey),
                         ),
                         Row(
-                          children: <Widget>[
+                          children: const <Widget>[
                             Text(
                               "Bus No : ",
                               style:
@@ -498,7 +498,7 @@ class JadwalPage extends StatelessWidget {
                       width: 10,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10)),
                             color: Colors.grey.shade200),
@@ -510,6 +510,9 @@ class JadwalPage extends StatelessWidget {
                         child: LayoutBuilder(
                           builder: (context, constraints) {
                             return Flex(
+                              direction: Axis.horizontal,
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: List.generate(
                                   (constraints.constrainWidth() / 10).floor(),
                                   (index) => SizedBox(
@@ -520,9 +523,6 @@ class JadwalPage extends StatelessWidget {
                                               color: Colors.grey.shade400),
                                         ),
                                       )),
-                              direction: Axis.horizontal,
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             );
                           },
                         ),
@@ -533,7 +533,7 @@ class JadwalPage extends StatelessWidget {
                       width: 10,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(10),
                                 bottomLeft: Radius.circular(10)),
                             color: Colors.grey.shade200),
@@ -543,8 +543,8 @@ class JadwalPage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 16, right: 16, bottom: 12),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(24),
@@ -552,22 +552,22 @@ class JadwalPage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           color: Colors.amber.shade50,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Icon(Icons.directions_bus_filled,
+                      child: const Icon(Icons.directions_bus_filled,
                           color: Colors.amber),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16,
                     ),
-                    Text("Shantika Jetbus",
+                    const Text("Shantika Jetbus",
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             color: Colors.grey)),
-                    Expanded(
+                    const Expanded(
                         child: Text("Rp80.000",
                             textAlign: TextAlign.end,
                             style: TextStyle(
@@ -581,8 +581,8 @@ class JadwalPage extends StatelessWidget {
                 height: 30,
               ),
               Container(
-                padding: EdgeInsets.all(16),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(16),
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(24),
@@ -591,18 +591,18 @@ class JadwalPage extends StatelessWidget {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        Text(
+                        const Text(
                           "BGR",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: Colors.indigo),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Container(
-                          padding: EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6),
                           decoration: BoxDecoration(
                               color: Colors.indigo.shade50,
                               borderRadius: BorderRadius.circular(20)),
@@ -626,6 +626,10 @@ class JadwalPage extends StatelessWidget {
                                   child: LayoutBuilder(
                                     builder: (context, constraints) {
                                       return Flex(
+                                        direction: Axis.horizontal,
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: List.generate(
                                             (constraints.constrainWidth() / 6)
                                                 .floor(),
@@ -638,10 +642,6 @@ class JadwalPage extends StatelessWidget {
                                                             .grey.shade300),
                                                   ),
                                                 )),
-                                        direction: Axis.horizontal,
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
                                       );
                                     },
                                   ),
@@ -660,7 +660,7 @@ class JadwalPage extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6),
                           decoration: BoxDecoration(
                               color: Colors.pink.shade50,
                               borderRadius: BorderRadius.circular(20)),
@@ -674,10 +674,10 @@ class JadwalPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
-                        Text(
+                        const Text(
                           "SMG",
                           style: TextStyle(
                               fontSize: 18,
@@ -686,12 +686,12 @@ class JadwalPage extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
+                      children: const <Widget>[
                         SizedBox(
                             width: 100,
                             child: Text(
@@ -716,12 +716,12 @@ class JadwalPage extends StatelessWidget {
                             )),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
+                      children: const <Widget>[
                         Text(
                           "07:00",
                           style: TextStyle(
@@ -738,16 +738,16 @@ class JadwalPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    const SizedBox(height: 12),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(
+                        const Text(
                           "1 April 2023",
                           style: TextStyle(fontSize: 12, color: Colors.grey),
                         ),
                         Row(
-                          children: <Widget>[
+                          children: const <Widget>[
                             Text(
                               "Bus No : ",
                               style:
@@ -776,7 +776,7 @@ class JadwalPage extends StatelessWidget {
                       width: 10,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10)),
                             color: Colors.grey.shade200),
@@ -788,6 +788,9 @@ class JadwalPage extends StatelessWidget {
                         child: LayoutBuilder(
                           builder: (context, constraints) {
                             return Flex(
+                              direction: Axis.horizontal,
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: List.generate(
                                   (constraints.constrainWidth() / 10).floor(),
                                   (index) => SizedBox(
@@ -798,9 +801,6 @@ class JadwalPage extends StatelessWidget {
                                               color: Colors.grey.shade400),
                                         ),
                                       )),
-                              direction: Axis.horizontal,
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             );
                           },
                         ),
@@ -811,7 +811,7 @@ class JadwalPage extends StatelessWidget {
                       width: 10,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(10),
                                 bottomLeft: Radius.circular(10)),
                             color: Colors.grey.shade200),
@@ -821,8 +821,8 @@ class JadwalPage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 16, right: 16, bottom: 12),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(24),
@@ -830,22 +830,22 @@ class JadwalPage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           color: Colors.amber.shade50,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Icon(Icons.directions_bus_filled,
+                      child: const Icon(Icons.directions_bus_filled,
                           color: Colors.amber),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16,
                     ),
-                    Text("Shantika Airbus",
+                    const Text("Shantika Airbus",
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             color: Colors.grey)),
-                    Expanded(
+                    const Expanded(
                         child: Text("Rp150.000",
                             textAlign: TextAlign.end,
                             style: TextStyle(

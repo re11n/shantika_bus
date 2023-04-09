@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:shantika_bus/conponents/search_bar.dart';
 import 'package:shantika_bus/conponents/ticket_view.dart';
-import 'package:shantika_bus/pages/pesan_tiket.dart';
 import 'jadwal_page.dart';
 
 class Dashboard extends StatefulWidget {
-  Dashboard({super.key});
+  const Dashboard({super.key});
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -19,9 +18,9 @@ class _DashboardState extends State<Dashboard> {
 
   List<Widget> tabItems = [
     Column(children: [SearchBar(), TicketView()]),
-    PesanTiket(),
     const Center(child: Text("Payment")),
     const JadwalPage(),
+    const Center(child: Text("About us")),
   ];
   void signUserOut() {
     FirebaseAuth.instance.signOut();
@@ -34,8 +33,11 @@ class _DashboardState extends State<Dashboard> {
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(63, 81, 181, 1),
+          leading: Image.asset(
+            'lib/images/shantika_logo.png',
+          ),
           actions: [
-            IconButton(onPressed: signUserOut, icon: const Icon(Icons.logout))
+            IconButton(onPressed: signUserOut, icon: const Icon(Icons.logout)),
           ],
         ),
         body: Center(
@@ -55,16 +57,16 @@ class _DashboardState extends State<Dashboard> {
               title: const Text('Dashboard'),
             ),
             FlashyTabBarItem(
-              icon: const Icon(Icons.airplane_ticket),
-              title: const Text('Ticket'),
-            ),
-            FlashyTabBarItem(
               icon: const Icon(Icons.payment),
               title: const Text('Payment'),
             ),
             FlashyTabBarItem(
               icon: const Icon(Icons.schedule),
               title: const Text('Schedule'),
+            ),
+            FlashyTabBarItem(
+              icon: const Icon(Icons.person_2_outlined),
+              title: const Text('About Us'),
             ),
           ],
         ),
