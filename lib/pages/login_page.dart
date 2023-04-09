@@ -179,16 +179,16 @@ class _LoginPageState extends State<LoginPage> {
                           padding: const EdgeInsets.only(top: 80.0, left: 75),
                           child: Row(
                             children: [
-                              Text(
+                              const Text(
                                 'Belum punya akun?',
                                 style: TextStyle(color: Colors.black),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 4,
                               ),
                               GestureDetector(
                                 onTap: widget.onTap,
-                                child: Text(
+                                child: const Text(
                                   'Register Sekarang',
                                   style: TextStyle(
                                     color: Colors.white,

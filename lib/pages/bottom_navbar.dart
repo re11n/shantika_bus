@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:shantika_bus/conponents/search_bar.dart';
 import 'package:shantika_bus/conponents/ticket_view.dart';
+import 'package:shantika_bus/pages/pembayaran.dart';
 import 'about_us.dart';
 import 'jadwal_page.dart';
 
@@ -21,7 +22,7 @@ class _DashboardState extends State<Dashboard> {
     SingleChildScrollView(
       child: Column(children: [SearchBar(), const TicketView()]),
     ),
-    const Center(child: Text("Payment")),
+    PaymentPage(),
     const JadwalPage(),
     AboutUsPage(),
   ];
