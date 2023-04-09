@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:shantika_bus/conponents/search_bar.dart';
 import 'package:shantika_bus/conponents/ticket_view.dart';
+import 'package:shantika_bus/pages/pesan_tiket.dart';
+import 'jadwal_page.dart';
 
 class Dashboard extends StatefulWidget {
   Dashboard({super.key});
@@ -17,9 +19,9 @@ class _DashboardState extends State<Dashboard> {
 
   List<Widget> tabItems = [
     Column(children: [SearchBar(), TicketView()]),
-    Center(child: Text("Ticket")),
-    Center(child: Text("Payment")),
-    Center(child: Text("Schedule")),
+    PesanTiket(),
+    const Center(child: Text("Payment")),
+    const JadwalPage(),
   ];
   void signUserOut() {
     FirebaseAuth.instance.signOut();
@@ -29,8 +31,12 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(63, 81, 181, 1),
+          backgroundColor: const Color.fromRGBO(63, 81, 181, 1),
+          actions: [
+            IconButton(onPressed: signUserOut, icon: const Icon(Icons.logout))
+          ],
         ),
         body: Center(
           child: tabItems[_selectedIndex],
@@ -45,20 +51,20 @@ class _DashboardState extends State<Dashboard> {
           }),
           items: [
             FlashyTabBarItem(
-              icon: Icon(Icons.house),
-              title: Text('Dashboard'),
+              icon: const Icon(Icons.house),
+              title: const Text('Dashboard'),
             ),
             FlashyTabBarItem(
-              icon: Icon(Icons.airplane_ticket),
-              title: Text('Ticket'),
+              icon: const Icon(Icons.airplane_ticket),
+              title: const Text('Ticket'),
             ),
             FlashyTabBarItem(
-              icon: Icon(Icons.payment),
-              title: Text('Payment'),
+              icon: const Icon(Icons.payment),
+              title: const Text('Payment'),
             ),
             FlashyTabBarItem(
-              icon: Icon(Icons.schedule),
-              title: Text('Schedule'),
+              icon: const Icon(Icons.schedule),
+              title: const Text('Schedule'),
             ),
           ],
         ),
