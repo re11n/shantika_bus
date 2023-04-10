@@ -6,6 +6,7 @@ import 'package:shantika_bus/conponents/ticket_view.dart';
 import 'package:shantika_bus/pages/pembayaran.dart';
 import 'about_us.dart';
 import 'jadwal_page.dart';
+import 'homepage.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -20,7 +21,7 @@ class _DashboardState extends State<Dashboard> {
 
   List<Widget> tabItems = [
     SingleChildScrollView(
-      child: Column(children: [SearchBar(), const TicketView()]),
+      child: Column(children: [HomeScreen(), const TicketView()]),
     ),
     PaymentPage(),
     const JadwalPage(),
