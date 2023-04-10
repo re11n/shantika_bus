@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shantika_bus/conponents/pesan_form.dart';
-import 'package:shantika_bus/conponents/ticket_form.dart';
-import 'package:shantika_bus/conponents/tipe_harga_form.dart';
+import 'package:shantika_bus/components/pesan_form.dart';
+import 'package:shantika_bus/components/ticket_form.dart';
+import 'package:shantika_bus/components/tipe_harga_form.dart';
 import 'dot_tiket.dart';
 import 'dart:async';
 import 'dart:convert';

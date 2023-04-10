@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../conponents/dot_tiket.dart';
-import '../conponents/ticket_form.dart';
-import '../conponents/tipe_harga_form.dart';
+import '../components/dot_tiket.dart';
+import '../components/ticket_form.dart';
+import '../components/tipe_harga_form.dart';
 
 class JadwalPage extends StatefulWidget {
   const JadwalPage({super.key});

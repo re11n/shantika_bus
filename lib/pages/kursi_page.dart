@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../conponents/selected_seat.dart';
+import '../components/selected_seat.dart';
 
 class SelectSeat extends GetView<SelectedSeat> {
   const SelectSeat({super.key});

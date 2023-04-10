@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shantika_bus/conponents/customshapeclipper.dart';
-import 'package:shantika_bus/conponents/search_bar.dart';
+import 'package:shantika_bus/components/customshapeclipper.dart';
+import 'package:shantika_bus/components/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,12 +13,12 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           height: 350,
           width: 400,
-          color: Color.fromRGBO(63, 81, 181, 1),
+          color: const Color.fromRGBO(63, 81, 181, 1),
           child: Column(children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 50.0,
             ),
-            Text(
+            const Text(
               'Selamat Pagi User!',
               style: TextStyle(
                 fontWeight: FontWeight.bold,

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
-import 'package:shantika_bus/conponents/search_bar.dart';
-import 'package:shantika_bus/conponents/ticket_view.dart';
+import 'package:shantika_bus/components/search_bar.dart';
+import 'package:shantika_bus/components/ticket_view.dart';
 import 'package:shantika_bus/pages/pembayaran.dart';
 import 'about_us.dart';
 import 'jadwal_page.dart';
