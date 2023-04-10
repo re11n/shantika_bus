@@ -6,71 +6,82 @@ class PaymentPage extends StatefulWidget {
 }
 
 class _PaymentPageState extends State<PaymentPage> {
-  String _cardNumber = "";
-  String _expirationDate = "";
-  String _cvvCode = "";
-  bool _isCvvFocused = false;
+  final _cardNumberController = TextEditingController();
+  final _expiryDateController = TextEditingController();
+  final _cvvController = TextEditingController();
+
+  @override
+  void dispose() {
+    _cardNumberController.dispose();
+    _expiryDateController.dispose();
+    _cvvController.dispose();
+    super.dispose();
+  }
+
+  void _processPayment() {
+    // Perform payment processing logic here
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Pembayaran Berhasil !'),
+        actions: [
+          ElevatedButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            TextField(
-              decoration: InputDecoration(
-                labelText: "Card Number",
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Kode Bayar : SHTK177017 \nAtas Nama : Albudi \nNo Kursi : 19 \nTujuan : Jakarta - Bandung \nTotal Harga : Rp.250.000',
+                style: Theme.of(context).textTheme.headline6,
               ),
-              keyboardType: TextInputType.number,
-              onChanged: (value) {
-                setState(() {
-                  _cardNumber = value;
-                });
-              },
-            ),
-            SizedBox(height: 20.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      labelText: "Expiration Date",
-                    ),
-                    keyboardType: TextInputType.number,
-                    onChanged: (value) {
-                      setState(() {
-                        _expirationDate = value;
-                      });
-                    },
-                  ),
+              const SizedBox(height: 16.0),
+              Text(
+                'Nomor Dana',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              TextField(
+                controller: _expiryDateController,
+                keyboardType: TextInputType.datetime,
+                decoration: const InputDecoration(
+                  hintText: '08******',
                 ),
-                SizedBox(width: 20.0),
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      labelText: "CVV Code",
-                    ),
-                    keyboardType: TextInputType.number,
-                    onChanged: (value) {
-                      setState(() {
-                        _cvvCode = value;
-                      });
-                    },
-                    focusNode: FocusNode(),
-                    obscureText: true,
-                    onTap: () {
-                      setState(() {
-                        _isCvvFocused = true;
-                      });
-                    },
-                  ),
+              ),
+              const SizedBox(height: 16.0),
+              Text(
+                'Password',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              TextField(
+                obscureText: true,
+                /* ... */
+                controller: _cvvController,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  hintText: 'Enter Password',
                 ),
-              ],
-            ),
-          ],
+              ),
+              const SizedBox(height: 32.0),
+              Center(
+                child: ElevatedButton(
+                  onPressed: _processPayment,
+                  child: const Text('Pay'),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
