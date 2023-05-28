@@ -5,6 +5,28 @@ import 'package:shantika_bus/conponents/search_bar.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  String greetingMessage() {
+    var hour = DateTime.now().hour;
+    String greeting;
+    String emoji;
+
+    if (hour < 12) {
+      greeting = "Selamat Pagi";
+      emoji = "☀️";
+    } else if (hour < 17) {
+      greeting = "Selamat Siang";
+      emoji = "🌞";
+    } else if (hour < 20) {
+      greeting = "Selamat Sore";
+      emoji = "🌇";
+    } else {
+      greeting = "Selamat Malam";
+      emoji = "🌙";
+    }
+
+    return greeting + " " + emoji;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[
@@ -19,7 +41,7 @@ class HomeScreen extends StatelessWidget {
               height: 50.0,
             ),
             Text(
-              'Selamat Pagi User!',
+              greetingMessage(),
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24.0,

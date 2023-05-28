@@ -7,6 +7,7 @@ import 'package:shantika_bus/pages/pembayaran.dart';
 import 'about_us.dart';
 import 'jadwal_page.dart';
 import 'homepage.dart';
+import 'setting_page.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -38,12 +39,50 @@ class _DashboardState extends State<Dashboard> {
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(63, 81, 181, 1),
-          leading: Image.asset(
-            'lib/images/shantika_logo.png',
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              );
+            },
           ),
+          title: Center(
+              child: Image.asset(
+            'lib/images/shantika_logo.png',
+            height: 40,
+          )),
           actions: [
             IconButton(onPressed: signUserOut, icon: const Icon(Icons.logout)),
           ],
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                accountName: Text(user.displayName ?? ''), // or user.email
+                accountEmail: Text(user.email ?? ''),
+                currentAccountPicture: CircleAvatar(
+                  child: Text(user.email![0].toUpperCase(),
+                      style: TextStyle(fontSize: 40.0)),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Settings'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => EditProfilePage()),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
         body: Center(child: tabItems[_selectedIndex]),
         bottomNavigationBar: FlashyTabBar(
