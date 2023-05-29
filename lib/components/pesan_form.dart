@@ -53,7 +53,8 @@ class _PesanFormState extends State<PesanForm> {
                         SizedBox(
                           width: 200,
                           child: TextField(
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0)),
                             decoration: InputDecoration(
                               enabledBorder: const UnderlineInputBorder(
                                   borderSide: BorderSide(
@@ -69,7 +70,8 @@ class _PesanFormState extends State<PesanForm> {
                         SizedBox(
                           width: 200,
                           child: TextField(
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0)),
                             decoration: InputDecoration(
                               enabledBorder: const UnderlineInputBorder(
                                   borderSide: BorderSide(
