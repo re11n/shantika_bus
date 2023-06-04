@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shantika_bus/components/customshapeclipper.dart';
 import 'package:shantika_bus/components/search_bar.dart';
@@ -9,6 +11,7 @@ class HomeScreen extends StatelessWidget {
     var hour = DateTime.now().hour;
     String greeting;
     String emoji;
+    String username = "";
 
     if (hour < 12) {
       greeting = "Selamat Pagi";
@@ -24,7 +27,16 @@ class HomeScreen extends StatelessWidget {
       emoji = "🌙";
     }
 
-    return greeting + " " + emoji;
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser?.email)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      username = documentSnapshot.get("username");
+      print(username);
+    });
+
+    return greeting + "" + username + " " + emoji;
   }
 
   @override

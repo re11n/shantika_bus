@@ -22,30 +22,18 @@ class _RegisterPageState extends State<RegisterPage> {
       FirebaseFirestore.instance.collection('users');
 
   void signUserUp() async {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        });
-
     try {
       if (passwordController.text == confirmPasswordController.text) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: emailController.text, password: passwordController.text);
 
-        await _users.add({
+        await _users.doc(emailController.text).set({
           "username": usernameController.text,
-          "email": emailController.text
         });
       } else {
         wrongConfirmMessage();
       }
-
-      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
-      Navigator.pop(context);
       if (e.code == 'user-not-found') {
         wrongEmailMessage();
       } else if (e.code == 'wrong-password') {
