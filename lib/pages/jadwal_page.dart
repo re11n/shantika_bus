@@ -1,8 +1,8 @@
-import 'dart:convert';
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../components/dot_tiket.dart';
+import '../components/pesan_form.dart';
 import '../components/ticket_form.dart';
 import '../components/tipe_harga_form.dart';
 
@@ -14,21 +14,12 @@ class JadwalPage extends StatefulWidget {
 }
 
 class _JadwalPageState extends State<JadwalPage> {
-  List tiketList = [];
-
-  Future<void> readJson() async {
-    final String response =
-        await rootBundle.loadString('lib/assets/listbus.json');
-    final data = await json.decode(response);
-    setState(() {
-      tiketList = data;
-    });
-  }
+  final Stream<QuerySnapshot> _busStream =
+      FirebaseFirestore.instance.collection('listbus').snapshots();
 
   @override
   void initState() {
     super.initState();
-    readJson();
   }
 
   @override
@@ -39,7 +30,6 @@ class _JadwalPageState extends State<JadwalPage> {
         padding: const EdgeInsets.only(left: 10, right: 10, top: 8, bottom: 8),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               const Padding(
                 padding: EdgeInsets.only(top: 10, bottom: 10),
@@ -54,32 +44,59 @@ class _JadwalPageState extends State<JadwalPage> {
               Padding(
                 padding:
                     const EdgeInsets.only(left: 5, right: 5, top: 8, bottom: 8),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: tiketList.map((e) {
-                      return Column(
-                        children: [
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          TicketForm(
-                            asal: e['asal'],
-                            tujuan: e['tujuan'],
-                            kodeasal: e['kodeasal'],
-                            kodetujuan: e['kodetujuan'],
-                            durasi: e['durasi'],
-                            jamberangkat: e['jamberangkat'],
-                            jamsampai: e['jamsampai'],
-                            tanggal: e['tanggal'],
-                            no: e['no'],
-                          ),
-                          const DotTiket(),
-                          TipeHargaForm(
-                              harga: e['harga'], tipebus: e['tipebus'])
-                        ],
-                      );
-                    }).toList(),
-                  ),
+                child: StreamBuilder<QuerySnapshot>(
+                  stream: _busStream,
+                  builder: (BuildContext context,
+                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.hasError) {
+                      return const Text('Something went wrong');
+                    }
+
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Text("Loading");
+                    }
+
+                    return ListView(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children:
+                          snapshot.data!.docs.map((DocumentSnapshot document) {
+                        Map<String, dynamic> data =
+                            document.data()! as Map<String, dynamic>;
+                        return Column(
+                          children: [
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            InkWell(
+                              child: TicketForm(
+                                asal: data['asal'],
+                                tujuan: data['tujuan'],
+                                kodeasal: data['kodeasal'],
+                                kodetujuan: data['kodetujuan'],
+                                durasi: data['durasi'],
+                                jamberangkat: data['jamberangkat'],
+                                jamsampai: data['jamsampai'],
+                                tanggal: data['tanggal'],
+                                no: data['no'],
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => PesanForm(),
+                                    ));
+                              },
+                            ),
+                            const DotTiket(),
+                            TipeHargaForm(
+                                harga: data['harga'], tipebus: data['tipebus'])
+                          ],
+                        );
+                      }).toList(),
+                    );
+                  },
                 ),
               )
             ],
