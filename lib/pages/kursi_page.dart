@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 
 import '../components/selected_seat.dart';
@@ -10,14 +11,15 @@ class SelectSeat extends GetView<SelectedSeat> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Pilih Kursi'),
-          leading: BackButton(
+          title: const Text('Pilih Kursi'),
+          leading: const BackButton(
             color: Colors.black,
           ),
         ),
-        backgroundColor: Color.fromARGB(255, 197, 202, 233),
+        backgroundColor: const Color.fromARGB(255, 197, 202, 233),
         body: Stack(
           children: [
+            // ignore: sized_box_for_whitespace
             Container(
               width: Get.width,
               height: Get.height,
@@ -27,12 +29,12 @@ class SelectSeat extends GetView<SelectedSeat> {
                 SizedBox(height: context.mediaQueryPadding.top),
                 Container(
                   height: 100,
-                  padding: EdgeInsets.symmetric(horizontal: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'Pilih Kursi',
                         style: TextStyle(
                             fontSize: 25,
@@ -42,7 +44,7 @@ class SelectSeat extends GetView<SelectedSeat> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
+                        children: const [
                           Text(
                             'New Shantika',
                             style: TextStyle(
@@ -60,10 +62,10 @@ class SelectSeat extends GetView<SelectedSeat> {
                 ),
                 Container(
                   height: 40,
-                  padding: EdgeInsets.symmetric(horizontal: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: const [
                       Status(
                         stat: 'Available',
                         color: Colors.white,
@@ -79,23 +81,23 @@ class SelectSeat extends GetView<SelectedSeat> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.5),
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(25),
                           topRight: Radius.circular(25),
                         )),
                     child: Column(
                       children: [
-                        SizedBox(height: 30),
+                        const SizedBox(height: 30),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 25),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
+                            children: const [
                               Text(
                                 'A',
                                 style: TextStyle(
@@ -123,7 +125,7 @@ class SelectSeat extends GetView<SelectedSeat> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Expanded(
@@ -132,26 +134,24 @@ class SelectSeat extends GetView<SelectedSeat> {
                             child: Row(
                               children: [
                                 Expanded(
-                                  child: Container(
-                                    child: GridView.count(
-                                      scrollDirection: Axis.vertical,
-                                      padding: EdgeInsets.all(10),
-                                      mainAxisSpacing: 14,
-                                      crossAxisSpacing: 16,
-                                      crossAxisCount: 4,
-                                      children: List.generate(
-                                        24,
-                                        (index) => Container(
-                                          width: 50,
-                                          height: 50,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Colors.black26,
-                                            ),
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(10),
+                                  child: GridView.count(
+                                    scrollDirection: Axis.vertical,
+                                    padding: const EdgeInsets.all(10),
+                                    mainAxisSpacing: 14,
+                                    crossAxisSpacing: 16,
+                                    crossAxisCount: 4,
+                                    children: List.generate(
+                                      24,
+                                      (index) => Container(
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: Colors.black26,
                                           ),
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                         ),
                                       ),
                                     ),
@@ -171,11 +171,11 @@ class SelectSeat extends GetView<SelectedSeat> {
                   child: Center(
                     child: ElevatedButton(
                       onPressed: () {},
-                      child: Text("PESAN"),
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xFF656CEE),
+                        backgroundColor: const Color(0xFF656CEE),
                         fixedSize: Size(Get.width * 0.8, 50),
                       ),
+                      child: const Text("PESAN"),
                     ),
                   ),
                 ),
@@ -206,10 +206,10 @@ class Status extends StatelessWidget {
           decoration: BoxDecoration(
               color: color, borderRadius: BorderRadius.circular(5)),
         ),
-        SizedBox(width: 7),
+        const SizedBox(width: 7),
         Text(
           stat,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
           ),
         )

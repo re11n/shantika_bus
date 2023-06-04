@@ -1,12 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:shantika_bus/components/pesan_form.dart';
 import 'package:shantika_bus/components/ticket_form.dart';
 import 'package:shantika_bus/components/tipe_harga_form.dart';
 import 'dot_tiket.dart';
 import 'dart:async';
-import 'dart:convert';
 
 class TicketView extends StatefulWidget {
   const TicketView({super.key});
@@ -33,11 +31,11 @@ class _TicketViewState extends State<TicketView> {
         stream: _busStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
-            return Text('Something went wrong');
+            return const Text('Something went wrong');
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Text("Loading");
+            return const Text("Loading");
           }
 
           return ListView(
@@ -68,7 +66,7 @@ class _TicketViewState extends State<TicketView> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PesanForm(),
+                            builder: (context) => const PesanForm(),
                           ));
                     },
                   ),

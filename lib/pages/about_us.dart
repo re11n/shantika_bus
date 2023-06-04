@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -22,7 +24,7 @@ class AboutUsPage extends StatelessWidget {
           //Name and Logo
           Container(
             width: screenWidth,
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
@@ -32,7 +34,7 @@ class AboutUsPage extends StatelessWidget {
                   'NEW SHANTIKA',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Image.asset(
                   'lib/images/shantika_logo.png',
                   width: 100,
@@ -45,7 +47,7 @@ class AboutUsPage extends StatelessWidget {
           //brief summary
           Container(
               width: screenWidth,
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Text(
                 'Di manapun Anda berada, kami ada untuk membantu Anda.',
                 style: Theme.of(context).textTheme.bodyMedium,
@@ -54,7 +56,7 @@ class AboutUsPage extends StatelessWidget {
           //statement and values
           Container(
               width: screenWidth,
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -62,27 +64,27 @@ class AboutUsPage extends StatelessWidget {
                     'Misi:',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     'Misi kami adalah untuk menyediakan produk dan layanan berkualitas tinggi kepada pelanggan kami.',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Text(
                     'Values:',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  SizedBox(height: 8),
-                  ListTile(
+                  const SizedBox(height: 8),
+                  const ListTile(
                     leading: Icon(Icons.check),
                     title: Text('Kepuasan pelanggan adalah prioritas kami'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.check),
                     title: Text(
                         'Kami berusaha untuk selalu memperbaiki produk dan layanan kami'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.check),
                     title: Text(
                         'Kami selalu mengedepankan kejujuran dan integritas dalam semua tindakan'),
@@ -93,7 +95,7 @@ class AboutUsPage extends StatelessWidget {
           //History and background
           Container(
               width: screenWidth,
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -101,32 +103,32 @@ class AboutUsPage extends StatelessWidget {
                     'Fasilitas:',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  SizedBox(height: 8),
-                  ListTile(
+                  const SizedBox(height: 8),
+                  const ListTile(
                     leading: Icon(Icons.ac_unit),
                     title: Text('AC di setiap bus'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.electric_bolt_sharp),
                     title: Text('Terminal Listrik'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.tv),
                     title: Text('Televisi'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.chat_bubble),
                     title: Text('Customer service yang ramah'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.airline_seat_recline_extra),
                     title: Text('Suasana yang nyaman'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.emoji_food_beverage_rounded),
                     title: Text('Snack yang beragam '),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.event_available),
                     title: Text('Jadwal yang selalu tepat waktu'),
                   ),
@@ -164,7 +166,7 @@ class AboutUsPage extends StatelessWidget {
           //awards
           Container(
               width: screenWidth,
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -172,28 +174,28 @@ class AboutUsPage extends StatelessWidget {
                     'Tentang Kami',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  SizedBox(height: 8),
-                  ListTile(
+                  const SizedBox(height: 8),
+                  const ListTile(
                     leading: Icon(Icons.person),
                     title: Text('Achmad Rizky'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.person),
                     title: Text('Luthfan Ramdhan Wahyudi'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.person),
                     title: Text('Muhammad Abdurrahman Firdaus'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.person),
                     title: Text('Muhammad Alfarizqi Rabbani'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.person),
                     title: Text('Rizal Rafif Setiawan'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.person),
                     title: Text('Ryan David Siahaan'),
                   ),
@@ -242,7 +244,7 @@ class AboutUsPage extends StatelessWidget {
           //contact information
           Container(
               width: screenWidth,
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -250,19 +252,19 @@ class AboutUsPage extends StatelessWidget {
                     'Hubungi Kami',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  SizedBox(height: 8),
-                  ListTile(
+                  const SizedBox(height: 8),
+                  const ListTile(
                     leading: Icon(Icons.location_on),
                     title: Text(
                         'Jl. Telekomunikasi. 1, Terusan Buahbatu - Bojongsoang'),
                     subtitle: Text(
                         'Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.phone),
                     title: Text('(+62) 851-5726-0088 (Hanya melayani chat)'),
                   ),
-                  ListTile(
+                  const ListTile(
                     leading: Icon(Icons.email),
                     title: Text('Newshantika.livery@gmail.com'),
                   ),
@@ -272,7 +274,7 @@ class AboutUsPage extends StatelessWidget {
           //social media
           Container(
               width: screenWidth,
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -280,22 +282,22 @@ class AboutUsPage extends StatelessWidget {
                     'Follow Us:',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   ListTile(
-                    leading: Icon(Icons.link),
-                    title: Text('Facebook'),
+                    leading: const Icon(Icons.link),
+                    title: const Text('Facebook'),
                     onTap: () => launchUrl(Uri.parse(
                         'https://m.facebook.com/newshantika.official')),
                   ),
                   ListTile(
-                    leading: Icon(Icons.link),
-                    title: Text('Instagram'),
+                    leading: const Icon(Icons.link),
+                    title: const Text('Instagram'),
                     onTap: () => launchUrl(Uri.parse(
                         'https://www.instagram.com/newshantika.official')),
                   ),
                   ListTile(
-                    leading: Icon(Icons.link),
-                    title: Text('Youtube'),
+                    leading: const Icon(Icons.link),
+                    title: const Text('Youtube'),
                     onTap: () => launchUrl(Uri.parse(
                         'https://www.youtube.com/c/NewShantikaChannel')),
                   ),

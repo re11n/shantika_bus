@@ -1,8 +1,13 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class EditProfilePage extends StatefulWidget {
+  const EditProfilePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _EditProfilePageState createState() => _EditProfilePageState();
 }
 
@@ -24,20 +29,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Change Email'),
+          title: const Text('Change Email'),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 TextField(
                   controller: _oldPasswordController,
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: "Enter your current password",
                   ),
                 ),
                 TextField(
                   controller: _newEmailController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: "Enter your new email",
                   ),
                 ),
@@ -46,7 +51,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Submit'),
+              child: const Text('Submit'),
               onPressed: () async {
                 // Create the credential
                 AuthCredential credential = EmailAuthProvider.credential(
@@ -63,7 +68,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       .updateEmail(_newEmailController.text);
 
                   // Success message
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                     content: Text('Email updated successfully.'),
                   ));
 
@@ -78,7 +83,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               },
             ),
             TextButton(
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -97,21 +102,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Change Password'),
+          title: const Text('Change Password'),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 TextField(
                   controller: _oldPasswordController,
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: "Enter your current password",
                   ),
                 ),
                 TextField(
                   controller: _newPasswordController,
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: "Enter your new password",
                   ),
                 ),
@@ -120,7 +125,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Submit'),
+              child: const Text('Submit'),
               onPressed: () async {
                 // Create the credential
                 AuthCredential credential = EmailAuthProvider.credential(
@@ -137,7 +142,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       .updatePassword(_newPasswordController.text);
 
                   // Success message
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                     content: Text('Password updated successfully.'),
                   ));
 
@@ -152,7 +157,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               },
             ),
             TextButton(
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -185,7 +190,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   await _auth.currentUser!.delete();
                   Navigator.of(context).pop();
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Akun berhasil dihapus.'),
                     ),
                   );
@@ -210,25 +215,25 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Profile'),
+        title: const Text('Edit Profile'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
             ListTile(
-              leading: Icon(Icons.email),
-              title: Text('Ubah Email'),
+              leading: const Icon(Icons.email),
+              title: const Text('Ubah Email'),
               onTap: _changeEmail,
             ),
             ListTile(
-              leading: Icon(Icons.vpn_key),
-              title: Text('Ubah Password'),
+              leading: const Icon(Icons.vpn_key),
+              title: const Text('Ubah Password'),
               onTap: _changePassword,
             ),
             ListTile(
-              leading: Icon(Icons.delete),
-              title: Text('Hapus Akun'),
+              leading: const Icon(Icons.delete),
+              title: const Text('Hapus Akun'),
               onTap: _deleteAccount,
             ),
           ],

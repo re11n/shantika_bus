@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 
 class TicketForm extends StatelessWidget {
@@ -39,7 +41,7 @@ class TicketForm extends StatelessWidget {
               children: <Widget>[
                 Text(
                   kodeasal,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.indigo),
@@ -123,7 +125,7 @@ class TicketForm extends StatelessWidget {
                 ),
                 Text(
                   kodetujuan,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.pink),
@@ -140,11 +142,11 @@ class TicketForm extends StatelessWidget {
                     width: 100,
                     child: Text(
                       asal,
-                      style: TextStyle(fontSize: 12, color: Colors.grey),
+                      style: const TextStyle(fontSize: 12, color: Colors.grey),
                     )),
                 Text(
                   durasi,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.bold,
                       color: Colors.black),
@@ -154,7 +156,7 @@ class TicketForm extends StatelessWidget {
                     child: Text(
                       tujuan,
                       textAlign: TextAlign.end,
-                      style: TextStyle(fontSize: 12, color: Colors.grey),
+                      style: const TextStyle(fontSize: 12, color: Colors.grey),
                     )),
               ],
             ),
@@ -166,14 +168,14 @@ class TicketForm extends StatelessWidget {
               children: <Widget>[
                 Text(
                   jamberangkat,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 18,
                       color: Colors.black,
                       fontWeight: FontWeight.bold),
                 ),
                 Text(
                   jamsampai,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 18,
                       color: Colors.black,
                       fontWeight: FontWeight.bold),
@@ -186,17 +188,17 @@ class TicketForm extends StatelessWidget {
               children: <Widget>[
                 Text(
                   tanggal,
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                  style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
                 Row(
                   children: <Widget>[
-                    Text(
+                    const Text(
                       "Bus No : ",
                       style: TextStyle(fontSize: 12, color: Colors.grey),
                     ),
                     Text(
                       no,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                           color: Colors.black),

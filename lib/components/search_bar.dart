@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 class SearchBar extends StatelessWidget {
   final List<String> searchableList = ["Bandung", "Jakarta", "Bogor"];
 
+  SearchBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -11,7 +13,7 @@ class SearchBar extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            leading: Icon(Icons.departure_board, color: Colors.white),
+            leading: const Icon(Icons.departure_board, color: Colors.white),
             title: AdvancedSearch(
               searchItems: searchableList,
               // other properties...
@@ -30,7 +32,7 @@ class SearchBar extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            leading: Icon(Icons.location_on, color: Colors.white),
+            leading: const Icon(Icons.location_on, color: Colors.white),
             title: AdvancedSearch(
               searchItems: searchableList,
               // other properties...
@@ -49,9 +51,8 @@ class SearchBar extends StatelessWidget {
         ElevatedButton(
           onPressed: () {
             // Put the function to handle search here.
-            print("Cari");
           },
-          child: Text("Cari"),
+          child: const Text("Cari"),
         ),
       ],
     );
@@ -61,14 +62,14 @@ class SearchBar extends StatelessWidget {
     return ListTile(
       title: Text(
         text.length > 3 ? text.substring(0, 3) : text,
-        style: TextStyle(
+        style: const TextStyle(
             fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
       ),
       subtitle: Text(
         text,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.normal,
           fontSize: 12,
           color: Colors.black26,

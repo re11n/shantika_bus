@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PaymentPage extends StatefulWidget {
+  const PaymentPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _PaymentPageState createState() => _PaymentPageState();
 }
 
@@ -45,12 +48,12 @@ class _PaymentPageState extends State<PaymentPage> {
             children: [
               Text(
                 'Kode Bayar : SHTK177017 \nAtas Nama : Albudi \nNo Kursi : 19 \nTujuan : Jakarta - Bandung \nTotal Harga : Rp.250.000',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 16.0),
               Text(
                 'Nomor Dana',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               TextField(
                 controller: _expiryDateController,
@@ -62,7 +65,7 @@ class _PaymentPageState extends State<PaymentPage> {
               const SizedBox(height: 16.0),
               Text(
                 'Password',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
               TextField(
                 obscureText: true,

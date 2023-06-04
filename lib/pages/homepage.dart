@@ -33,10 +33,11 @@ class HomeScreen extends StatelessWidget {
         .get()
         .then((DocumentSnapshot documentSnapshot) {
       username = documentSnapshot.get("username");
+      // ignore: avoid_print
       print(username);
     });
 
-    return greeting + "" + username + " " + emoji;
+    return "$greeting$username $emoji";
   }
 
   @override
@@ -54,7 +55,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Text(
               greetingMessage(),
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24.0,
                 color: Colors.white,
