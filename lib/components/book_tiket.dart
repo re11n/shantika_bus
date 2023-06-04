@@ -1,15 +1,25 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/kursi_page.dart';
 
-class PesanForm extends StatefulWidget {
-  const PesanForm({Key? key}) : super(key: key);
+class BookTiket extends StatefulWidget {
+  final String nobus;
+  final String harga;
+  const BookTiket({
+    Key? key,
+    required this.nobus,
+    required this.harga,
+  }) : super(key: key);
 
   @override
-  State<PesanForm> createState() => _PesanFormState();
+  State<BookTiket> createState() => _BookTiketState();
 }
 
-class _PesanFormState extends State<PesanForm> {
+class _BookTiketState extends State<BookTiket> {
   String selectedValue = "lakilaki";
 
   @override
@@ -30,7 +40,11 @@ class _PesanFormState extends State<PesanForm> {
                     padding: const EdgeInsets.only(left: 10.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
+                      children: [
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text('Nomor Bus: '),
                         SizedBox(
                           height: 30,
                         ),
@@ -43,6 +57,10 @@ class _PesanFormState extends State<PesanForm> {
                           height: 50,
                         ),
                         Text('Jenis Kelamin: '),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        Text("Harga: "),
                       ],
                     ),
                   ),
@@ -50,6 +68,10 @@ class _PesanFormState extends State<PesanForm> {
                     padding: const EdgeInsets.only(left: 40.0),
                     child: Column(
                       children: [
+                        const SizedBox(
+                          height: 35,
+                        ),
+                        Text(widget.nobus),
                         const SizedBox(
                           width: 200,
                           child: TextField(
@@ -94,7 +116,11 @@ class _PesanFormState extends State<PesanForm> {
                                 selectedValue = newValue!;
                               });
                             },
-                            items: dropdownItems)
+                            items: dropdownItems),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Text(widget.harga),
                       ],
                     ),
                   ),
@@ -110,6 +136,7 @@ class _PesanFormState extends State<PesanForm> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
+                      ///builder: (context) => const SelectSeat(),
                       builder: (context) => const SelectSeat(),
                     ),
                   );

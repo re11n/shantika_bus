@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:shantika_bus/components/pesan_form.dart';
+import 'package:shantika_bus/components/book_tiket.dart';
 import 'package:shantika_bus/components/ticket_form.dart';
 import 'package:shantika_bus/components/tipe_harga_form.dart';
 import 'dot_tiket.dart';
@@ -66,7 +66,10 @@ class _TicketViewState extends State<TicketView> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const PesanForm(),
+                            builder: (context) => BookTiket(
+                              nobus: data['no'],
+                              harga: data['harga'],
+                            ),
                           ));
                     },
                   ),

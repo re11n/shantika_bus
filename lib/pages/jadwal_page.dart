@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:shantika_bus/components/book_tiket.dart';
 import '../components/dot_tiket.dart';
-import '../components/pesan_form.dart';
 import '../components/ticket_form.dart';
 import '../components/tipe_harga_form.dart';
 
@@ -85,7 +85,10 @@ class _JadwalPageState extends State<JadwalPage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const PesanForm(),
+                                      builder: (context) => BookTiket(
+                                        nobus: data['no'],
+                                        harga: data['harga'],
+                                      ),
                                     ));
                               },
                             ),
