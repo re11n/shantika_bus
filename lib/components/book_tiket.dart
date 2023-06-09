@@ -3,16 +3,29 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 import '../pages/kursi_page.dart';
 
 class BookTiket extends StatefulWidget {
   final String nobus;
   final String harga;
+  final String dari;
+  final String ke;
+  final String jamberangkat;
+  final String jamsampai;
+  final String tipebus;
+  final String tanggal;
+
   const BookTiket({
     Key? key,
     required this.nobus,
     required this.harga,
+    required this.dari,
+    required this.ke,
+    required this.jamberangkat,
+    required this.jamsampai,
+    required this.tipebus,
+    required this.tanggal,
   }) : super(key: key);
 
   @override
@@ -21,6 +34,8 @@ class BookTiket extends StatefulWidget {
 
 class _BookTiketState extends State<BookTiket> {
   String selectedValue = "lakilaki";
+
+  var formatter = NumberFormat("#,###");
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +49,75 @@ class _BookTiketState extends State<BookTiket> {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(
+                height: 30,
+              ),
+              Stack(
+                children: [
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Color.fromARGB(255, 60, 88, 248),
+                      ),
+                      width: 350,
+                      height: 150,
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: 14,
+                      ),
+                      Text(widget.tanggal),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            widget.dari,
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Icon(
+                            Icons.trending_flat_sharp,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            size: 24,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            widget.ke,
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        widget.jamberangkat + " - " + widget.jamsampai,
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        widget.tipebus,
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
               Row(
                 children: [
                   Padding(
@@ -120,7 +204,7 @@ class _BookTiketState extends State<BookTiket> {
                         const SizedBox(
                           height: 30,
                         ),
-                        Text(widget.harga),
+                        Text("Rp ${formatter.format(int.parse(widget.harga))}"),
                       ],
                     ),
                   ),

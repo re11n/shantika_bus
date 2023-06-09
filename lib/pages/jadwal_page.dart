@@ -88,6 +88,12 @@ class _JadwalPageState extends State<JadwalPage> {
                                       builder: (context) => BookTiket(
                                         nobus: data['no'],
                                         harga: data['harga'],
+                                        dari: data['asal'],
+                                        ke: data['tujuan'],
+                                        jamberangkat: data['jamberangkat'],
+                                        jamsampai: data['jamsampai'],
+                                        tipebus: data['tipebus'],
+                                        tanggal: data['tanggal'],
                                       ),
                                     ));
                               },

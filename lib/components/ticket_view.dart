@@ -69,6 +69,12 @@ class _TicketViewState extends State<TicketView> {
                             builder: (context) => BookTiket(
                               nobus: data['no'],
                               harga: data['harga'],
+                              dari: data['asal'],
+                              jamberangkat: data['jamberangkat'],
+                              jamsampai: data['jamsampai'],
+                              ke: data['tujuan'],
+                              tipebus: data['tipebus'],
+                              tanggal: data['tanggal'],
                             ),
                           ));
                     },
