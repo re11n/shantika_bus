@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:shantika_bus/components/ticket_view.dart';
+import 'package:shantika_bus/pages/booking_list.dart';
 import 'package:shantika_bus/pages/pembayaran.dart';
+import '../components/payment_list.dart';
 import 'about_us.dart';
 import 'jadwal_page.dart';
 import 'homepage.dart';
@@ -23,7 +25,8 @@ class _DashboardState extends State<Dashboard> {
     SingleChildScrollView(
       child: Column(children: const [HomeScreen(), TicketView()]),
     ),
-    const PaymentPage(),
+    const PaymentList(),
+    const BookingList(),
     const JadwalPage(),
     AboutUsPage(),
   ];
@@ -101,6 +104,10 @@ class _DashboardState extends State<Dashboard> {
             FlashyTabBarItem(
               icon: const Icon(Icons.payment),
               title: const Text('Payment'),
+            ),
+            FlashyTabBarItem(
+              icon: const Icon(Icons.payment),
+              title: const Text('Booking'),
             ),
             FlashyTabBarItem(
               icon: const Icon(Icons.schedule),

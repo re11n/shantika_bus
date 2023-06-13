@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../pages/kursi_page.dart';
+import '../modules/select_seat/views/select_seat_view.dart';
 
 class BookTiket extends StatefulWidget {
   final String nobus;
@@ -34,6 +35,8 @@ class BookTiket extends StatefulWidget {
 
 class _BookTiketState extends State<BookTiket> {
   String selectedValue = "lakilaki";
+  final namaController = TextEditingController();
+  final notelpController = TextEditingController();
 
   var formatter = NumberFormat("#,###");
 
@@ -156,9 +159,10 @@ class _BookTiketState extends State<BookTiket> {
                           height: 35,
                         ),
                         Text(widget.nobus),
-                        const SizedBox(
+                        SizedBox(
                           width: 200,
                           child: TextField(
+                            controller: namaController,
                             style:
                                 TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                             decoration: InputDecoration(
@@ -167,15 +171,16 @@ class _BookTiketState extends State<BookTiket> {
                                       color: Color.fromARGB(255, 21, 48, 170))),
                               focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.black)),
-                              hintText: 'no',
+                              hintText: 'Nama',
                               hintStyle: TextStyle(
                                   color: Color.fromARGB(87, 255, 255, 255)),
                             ),
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 200,
                           child: TextField(
+                            controller: notelpController,
                             style:
                                 TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                             decoration: InputDecoration(
@@ -184,7 +189,7 @@ class _BookTiketState extends State<BookTiket> {
                                       color: Color.fromARGB(255, 21, 48, 170))),
                               focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.black)),
-                              hintText: 'nama',
+                              hintText: 'No telp',
                               hintStyle: TextStyle(
                                   color: Color.fromARGB(87, 255, 255, 255)),
                             ),
@@ -221,7 +226,12 @@ class _BookTiketState extends State<BookTiket> {
                     context,
                     MaterialPageRoute(
                       ///builder: (context) => const SelectSeat(),
-                      builder: (context) => const SelectSeat(),
+                      builder: (context) => SelectSeatView(
+                          widget.nobus,
+                          namaController.text,
+                          widget.harga,
+                          selectedValue,
+                          widget.tipebus),
                     ),
                   );
                 },

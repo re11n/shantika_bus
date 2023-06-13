@@ -12,7 +12,7 @@ class AppPages {
 
   static const INITIAL = Routes.HOME;
 
-  static final routes = [
+  /*static final routes = [
     GetPage(
       name: _Paths.HOME,
       page: () => const HomeView(),
@@ -23,5 +23,5 @@ class AppPages {
       page: () => SelectSeatView(),
       binding: SelectSeatBinding(),
     ),
-  ];
+  ];*/
 }

@@ -49,9 +49,12 @@ dependencies:
   ff_annotation_route_library: ^3.0.0
   easy_dynamic_theme: ^2.0.0
   cloud_firestore: ^4.8.0
+  get: ^4.6.5
+  fluttertoast: ^8.2.2
+  intl: ^0.18.1
+  qr_flutter: ^4.1.0
 
 dev_dependencies:
-  get : 4.6.5 
   flutter_test:
     sdk: flutter
 
