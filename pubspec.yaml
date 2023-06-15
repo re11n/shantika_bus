@@ -48,6 +48,7 @@ dependencies:
   pull_to_refresh_notification: ^3.0.0
   ff_annotation_route_library: ^3.0.0
   easy_dynamic_theme: ^2.0.0
+  cloud_firestore: ^4.8.1
 
 dev_dependencies:
   get : 4.6.5 
