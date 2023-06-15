@@ -1,14 +1,19 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TipeHargaForm extends StatelessWidget {
   final tipebus;
   final harga;
 
-  const TipeHargaForm({
+  TipeHargaForm({
     super.key,
     required this.harga,
     required this.tipebus,
   });
+
+  var formatter = NumberFormat("#,###");
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +42,7 @@ class TipeHargaForm extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   color: Colors.grey)),
           Expanded(
-              child: Text(harga,
+              child: Text("Rp ${formatter.format(int.parse(harga))}",
                   textAlign: TextAlign.end,
                   style: const TextStyle(
                       fontSize: 18,

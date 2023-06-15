@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class LoginButton extends StatelessWidget {
   Function()? onTap;
   final String text;

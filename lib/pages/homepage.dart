@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shantika_bus/conponents/customshapeclipper.dart';
-import 'package:shantika_bus/conponents/search_bar.dart';
+import 'package:shantika_bus/components/customshapeclipper.dart';
+import 'package:shantika_bus/components/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,6 +11,7 @@ class HomeScreen extends StatelessWidget {
     var hour = DateTime.now().hour;
     String greeting;
     String emoji;
+    String username = "";
 
     if (hour < 12) {
       greeting = "Selamat Pagi";
@@ -24,7 +27,17 @@ class HomeScreen extends StatelessWidget {
       emoji = "🌙";
     }
 
-    return greeting + " " + emoji;
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser?.email)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      username = documentSnapshot.get("username");
+      // ignore: avoid_print
+      print(username);
+    });
+
+    return "$greeting$username $emoji";
   }
 
   @override
@@ -35,14 +48,14 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           height: 350,
           width: 400,
-          color: Color.fromRGBO(63, 81, 181, 1),
+          color: const Color.fromRGBO(63, 81, 181, 1),
           child: Column(children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 50.0,
             ),
             Text(
               greetingMessage(),
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24.0,
                 color: Colors.white,

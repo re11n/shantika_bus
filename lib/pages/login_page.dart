@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shantika_bus/conponents/login_textfield.dart';
-import 'package:shantika_bus/conponents/login_button.dart';
+import 'package:shantika_bus/components/login_textfield.dart';
+import 'package:shantika_bus/components/login_button.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -29,6 +29,7 @@ class _LoginPageState extends State<LoginPage> {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);

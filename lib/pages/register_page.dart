@@ -1,7 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shantika_bus/conponents/login_textfield.dart';
-import 'package:shantika_bus/conponents/login_button.dart';
+import 'package:shantika_bus/components/login_textfield.dart';
+import 'package:shantika_bus/components/login_button.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -14,29 +15,25 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
+  final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  final CollectionReference _users =
+      FirebaseFirestore.instance.collection('users');
 
   void signUserUp() async {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        });
-
     try {
       if (passwordController.text == confirmPasswordController.text) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: emailController.text, password: passwordController.text);
+
+        await _users.doc(emailController.text).set({
+          "username": usernameController.text,
+        });
       } else {
         wrongConfirmMessage();
       }
-
-      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
-      Navigator.pop(context);
       if (e.code == 'user-not-found') {
         wrongEmailMessage();
       } else if (e.code == 'wrong-password') {
@@ -120,6 +117,15 @@ class _RegisterPageState extends State<RegisterPage> {
                         Padding(
                           padding: const EdgeInsets.only(top: 30),
                           child: LoginTextField(
+                            controller: usernameController,
+                            hintText: 'Username',
+                            obscureText: false,
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 30),
+                          child: LoginTextField(
                             controller: emailController,
                             hintText: 'Email',
                             obscureText: false,
@@ -148,7 +154,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
                         //tombol login
                         Padding(
-                          padding: const EdgeInsets.only(top: 30),
+                          padding: const EdgeInsets.only(
+                            top: 30,
+                          ),
                           child: LoginButton(
                             text: "Register",
                             onTap: signUserUp,

@@ -55,6 +55,8 @@ class _SearchBarState extends State<SearchBar> {
     });
   }
 
+  SearchBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -62,7 +64,7 @@ class _SearchBarState extends State<SearchBar> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            leading: Icon(Icons.departure_board, color: Colors.white),
+            leading: const Icon(Icons.departure_board, color: Colors.white),
             title: AdvancedSearch(
               searchItems: searchableAsalList,
               hintText: 'Asal Keberangkatan',
@@ -84,7 +86,7 @@ class _SearchBarState extends State<SearchBar> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            leading: Icon(Icons.location_on, color: Colors.white),
+            leading: const Icon(Icons.location_on, color: Colors.white),
             title: AdvancedSearch(
               searchItems: searchableTujuanList,
               hintText: 'Tujuan',
@@ -105,44 +107,32 @@ class _SearchBarState extends State<SearchBar> {
         ),
         ElevatedButton(
           onPressed: () {
-            searchBusList();
+            // Put the function to handle search here.
           },
-          child: Text("Cari"),
+          child: const Text("Cari"),
         ),
       ],
     );
   }
 
-  void searchBusList() {
-    if (selectedAsal.isEmpty && selectedTujuan.isEmpty) {
-      print("Masukkan asal dan/atau tujuan");
-      return;
-    }
-
-    Query query = FirebaseFirestore.instance.collection('listbus');
-
-    if (selectedAsal.isNotEmpty) {
-      query = query.where('asal', isEqualTo: selectedAsal);
-    }
-
-    if (selectedTujuan.isNotEmpty) {
-      query = query.where('tujuan', isEqualTo: selectedTujuan);
-    }
-
-    query.get().then((QuerySnapshot snapshot) {
-      List<Map<String, dynamic>> busList = [];
-      snapshot.docs.forEach((doc) {
-        busList.add({
-          'asal': doc.get('asal'),
-          'tujuan': doc.get('tujuan'),
-        });
-      });
-
-      print("Hasil pencarian:");
-      print(busList);
-    }).catchError((error) {
-      print("Terjadi kesalahan saat melakukan pencarian: $error");
-    });
+  Widget searchWidget(String text) {
+    return ListTile(
+      title: Text(
+        text.length > 3 ? text.substring(0, 3) : text,
+        style: const TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
+      ),
+      subtitle: Text(
+        text,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: const TextStyle(
+          fontWeight: FontWeight.normal,
+          fontSize: 12,
+          color: Colors.black26,
+        ),
+      ),
+    );
   }
 }
 ///
