@@ -1,8 +1,59 @@
-import 'package:advanced_search/advanced_search.dart';
 import 'package:flutter/material.dart';
+import 'package:advanced_search/advanced_search.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class SearchBar extends StatelessWidget {
-  final List<String> searchableList = ["Bandung", "Jakarta", "Bogor"];
+class SearchBar extends StatefulWidget {
+  @override
+  _SearchBarState createState() => _SearchBarState();
+}
+
+class _SearchBarState extends State<SearchBar> {
+  List<String> searchableAsalList = [];
+  List<String> searchableTujuanList = [];
+
+  String selectedAsal = '';
+  String selectedTujuan = '';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchAsalList();
+    fetchTujuanList();
+  }
+
+  Future<void> fetchAsalList() async {
+    QuerySnapshot snapshot =
+        await FirebaseFirestore.instance.collection('listbus').get();
+
+    List<String> asalList = [];
+    snapshot.docs.forEach((doc) {
+      String asal = doc['asal'];
+      if (!asalList.contains(asal)) {
+        asalList.add(asal);
+      }
+    });
+
+    setState(() {
+      searchableAsalList = asalList;
+    });
+  }
+
+  Future<void> fetchTujuanList() async {
+    QuerySnapshot snapshot =
+        await FirebaseFirestore.instance.collection('listbus').get();
+
+    List<String> tujuanList = [];
+    snapshot.docs.forEach((doc) {
+      String tujuan = doc['tujuan'];
+      if (!tujuanList.contains(tujuan)) {
+        tujuanList.add(tujuan);
+      }
+    });
+
+    setState(() {
+      searchableTujuanList = tujuanList;
+    });
+  }
 
   SearchBar({super.key});
 
@@ -15,9 +66,8 @@ class SearchBar extends StatelessWidget {
           child: ListTile(
             leading: const Icon(Icons.departure_board, color: Colors.white),
             title: AdvancedSearch(
-              searchItems: searchableList,
-              // other properties...
-              hintText: 'Asal Keberangkatan?',
+              searchItems: searchableAsalList,
+              hintText: 'Asal Keberangkatan',
               hintTextColor: Colors.white,
               inputTextFieldBgColor: Colors.white10,
               selectedTextColor: Colors.blue,
@@ -25,7 +75,11 @@ class SearchBar extends StatelessWidget {
               focusedBorderColor: Colors.white,
               borderColor: Colors.white,
               cursorColor: Colors.white,
-              onItemTap: (int index, String value) {},
+              onItemTap: (int index, String value) {
+                setState(() {
+                  selectedAsal = value;
+                });
+              },
             ),
           ),
         ),
@@ -34,9 +88,8 @@ class SearchBar extends StatelessWidget {
           child: ListTile(
             leading: const Icon(Icons.location_on, color: Colors.white),
             title: AdvancedSearch(
-              searchItems: searchableList,
-              // other properties...
-              hintText: 'Tujuan?',
+              searchItems: searchableTujuanList,
+              hintText: 'Tujuan',
               hintTextColor: Colors.white,
               inputTextFieldBgColor: Colors.white10,
               selectedTextColor: Colors.blue,
@@ -44,7 +97,11 @@ class SearchBar extends StatelessWidget {
               focusedBorderColor: Colors.white,
               borderColor: Colors.white,
               cursorColor: Colors.white,
-              onItemTap: (int index, String value) {},
+              onItemTap: (int index, String value) {
+                setState(() {
+                  selectedTujuan = value;
+                });
+              },
             ),
           ),
         ),
@@ -78,3 +135,4 @@ class SearchBar extends StatelessWidget {
     );
   }
 }
+///
